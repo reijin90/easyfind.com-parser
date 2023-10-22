@@ -2,6 +2,8 @@
 
 This tool allows you to scrape data from the given URL using Selenium WebDriver and BeautifulSoup. The tool parses and collects data from specific tables in the webpage, filters it, and finally saves the resultant data in a CSV file.
 
+*Note: This script was created with the help of AI tools/LLMs.*
+
 ## Requirements
 
 - Python 3
@@ -55,13 +57,15 @@ For example, if you have performed a search for lost personal items in Geneva, t
 
 You can copy this URL and use it as the base URL in the script, but...
 
-> :warning: **IMPORTANT**: Be sure to **omit** the `LostDate` parameter from the URL because the script will handle this dynamically:
+> :warning: **IMPORTANT**: Be sure to **remove the value** of the `LostDate` parameter from the URL. Keep the `LostDate` parameter itself in there, as the script appends its own value dynamically:
 
 ```python
-base_url = "https://secure.easyfind.com/webpublic/UI/SearchResultFoundItems.aspx?Category=3&City=Gen%u00e8ve&"
+base_url = "https://secure.easyfind.com/webpublic/UI/SearchResultFoundItems.aspx?Category=3&City=Gen%u00e8ve&LostDate="
 ```
 
 Please, be careful with URL encoding and ensure you don't leave out important parameters like `Category` or `City`. The parameters in the base URL should exactly match your search criteria for the scraping to work correctly.
+
+Please note that your desired category, city, and other search attributes might have a different parameter in the URL. Modify the script accordingly to match these parameters. Always make sure to inspect the webpage structure and the element identifiers, as they might differ for different categories or cities.
 
 ## Errors and Troubleshooting
 
